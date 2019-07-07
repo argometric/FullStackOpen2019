@@ -1,0 +1,14 @@
+note over browser:
+User enters notename and presses save button.
+This send an HTTP POST Request to the addres 
+new_note_spa containing the note as JSON Data
+end note
+
+note over browser:
+JavaScript pushes the note to
+the server and rerenders the 
+notes without reloading the page
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+server-->browser: Status Code: 201 Created, {"message":"note created"}
