@@ -1,0 +1,31 @@
+note over browser:
+user enters a note, by pressing the 
+save button he sends the note as a 
+HTTP-POST request to the server address new_note
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+
+note over server:
+server responds with HTTP status code 302 causing
+a URL Redirect, telling the browser to do a new
+HTTP GET and reloading the page with the new data  
+end note
+
+server-->browser: Returns a HTTP 302 Found
+
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
